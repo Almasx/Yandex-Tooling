@@ -89,7 +89,7 @@ Screenshots of the non-optimal places found were taken and included in the corre
 
 ### 2.1 Page Loading Profile
 
-The page loading profile was written and saved to a file.
+The page loading profile was written and saved to a file. Since file size is >25MB (~ 27MB), I uploaded zip file
 
 ### 2.2 Performance Metrics
 
