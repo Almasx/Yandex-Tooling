@@ -28,7 +28,17 @@ The resource loading profile when opening the page was written and saved to a HA
 ### 1.2 Non-Optimal Places
 
 #### 1.2.1 Resource Duplication
-Several resources were found to be duplicated:
+
+Interestingly, we notice that all button requests, as circled in the screenshots, are duplicated. It appears that there is an extra request in place as a fallback, meant to be used if the initial request fails. However, in this case, the first requests successfully receive the necessary information for these buttons. Therefore, the additional requests are unnecessary and could be optimized to reduce the load.
+
+Duplicate resources
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/d717b3c3-e461-4b7e-b0f9-e723aedd6959)
+
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/e1886fe7-dc75-427d-84c9-946dffdcd632)
+
+
+
+There is also several resources were found to be duplicated:
 
 - `cast_sender.js`
 - `code.js`
@@ -95,11 +105,20 @@ The page loading profile was written and saved to a file. Since file size is >25
 
 | Event                | Time (ms)  |
 |----------------------|------------|
-| First Paint          | 1707.5     |
-| First Contentful Paint | 1707.5     |
-| DOMContentLoaded Event | 2955.6     |
-| Largest Contentful Paint | 3090.6     |
-| Onload Event         | 6050.5     |
+| First Paint          |      |
+| First Contentful Paint |      |
+| DOMContentLoaded Event |      |
+| Largest Contentful Paint |      |
+| Onload Event         |      |
+
+| Metrics | Original | Slow 3G & CPU 4x |
+|---------|----------|------------------|
+| First Paint | 1707.5 ms | 10374.1 ms |
+| First Contentful Paint | 1707.5 ms | 10374.1 ms |
+| DOMContentLoaded Event | 2955.6 ms | 38604.4 ms |
+| Largest Contentful Paint | 3090.6 ms | 16640.8 ms |
+| Onload Event | 6050.5 ms | 60533.0 ms |
+
 
 ### 2.3 LCP DOM Element
 
@@ -111,11 +130,27 @@ The DOM element on which the LCP occurs is an image tag with the class "contentI
 *Screenshot*  
 ![](https://github.com/Almasx/Yandex-Tooling/assets/58309601/0104cd1c-bcdb-4889-9c74-c1277a2ccc6e)
 
+Slow 3G & CPU 4x
+The DOM element on which the LCP occurs is an image tag with the class "contentImage__image".
+```html
+<h1 class="page__title" itemprop="headline name">Финансовый контроль: методы анализа и оценки эффективности</h1>
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/605aed47-17bb-48d5-92c7-5bb3c2b55b55)
+```
+
+*Screenshot*  
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/605aed47-17bb-48d5-92c7-5bb3c2b55b55)
+
+
+
 ### 2.4 Document Processing Stages
 
 The time spent in different stages of document processing was measured. Here is a detailed breakdown:
 
 ![Processing Stages](https://github.com/Almasx/Yandex-Tooling/assets/58309601/dc0ecee6-2ba8-4e8a-8f10-456f53edc7b7)
+
+
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/ea7dc760-a86b-4c43-9d54-6a0391a6147d)
+*Here is for Slow 3G & CPU 4x* 
 
 ## 3. Coverage Tab Analysis
 
@@ -124,15 +159,28 @@ The time spent in different stages of document processing was measured. Here is 
 *Screenshot*  
 ![](https://github.com/Almasx/Yandex-Tooling/assets/58309601/4e749a03-7ac8-445f-b779-e0e9da28feaa)
 
+*Screenshot Slow 3G & CPU 4x* 
+![image](https://github.com/Almasx/Yandex-Tooling/assets/58309601/57c0c8ea-0484-4f63-8626-5d3ed19f31a6)
+
+
 ### 3.2 Unused CSS
 
 During page load, 539 kB of CSS was unused out of a total of 762 kB.
+
+*Slow 3G & CPU 4x* 
+During page load, 556 kB of CSS was unused out of a total of 762 kB.
 
 ### 3.3 Unused JS
 
 During page load, 2.3 MB of JS was unused out of a total of 3.8 MB.
 
+*Slow 3G & CPU 4x* 
+During page load, 2.3 MB of JS was unused out of a total of 3.8 MB 
+
+
 | Resource Type | Used | Unused | Total |
 |---------------|------|--------|-------|
 | CSS           | 223 kB | 539 kB | 762 kB |
 | JS            | 1.5 MB | 2.3 MB | 3.8 MB |
+| CSS (Slow 3G & CPU 4x)           | 206 kB | 556 kB | 762 kB |
+| JS  (Slow 3G & CPU 4x)          | 1.4 MB | 2.3 MB  | 3.8 MB |
