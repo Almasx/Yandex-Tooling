@@ -19,7 +19,7 @@ This document presents the analysis of the page [https://www.gd.ru/articles/9039
 
 # Yandex-Tooling: Performance Analysis Tasks
 
-## 1. Network Tab Analysis
+## 1. Network Tab Analysis (Slow 3G & CPU 4x is ~ same)
 
 ### 1.1 HAR Archive
 The resource loading profile when opening the page was written and saved to a HAR archive.
