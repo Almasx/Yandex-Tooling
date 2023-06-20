@@ -89,9 +89,6 @@ Several resources were found to be blocking the download:
 - `DeliveryWidget.js?cache=5a6fa72bdfc8007242bf089feb2ff92203bc8762`
 - `utmEventManager.js?cache=5a6fa72bdfc8007242bf089feb2ff92203bc8762`
 
-#### 1.2.5 Something Else
-Unfortunately, the task did not provide specific information for this section. However, based on the network analysis, potential issues could include unoptimized images, unused JavaScript, and so forth.
-
 ### 1.3 Screenshots of Non-Optimal Places
 Screenshots of the non-optimal places found were taken and included in the corresponding sections of the report.
 
