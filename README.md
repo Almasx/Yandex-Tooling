@@ -103,14 +103,6 @@ The page loading profile was written and saved to a file. Since file size is >25
 
 ### 2.2 Performance Metrics
 
-| Event                | Time (ms)  |
-|----------------------|------------|
-| First Paint          |      |
-| First Contentful Paint |      |
-| DOMContentLoaded Event |      |
-| Largest Contentful Paint |      |
-| Onload Event         |      |
-
 | Metrics | Original | Slow 3G & CPU 4x |
 |---------|----------|------------------|
 | First Paint | 1707.5 ms | 10374.1 ms |
